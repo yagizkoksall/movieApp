@@ -6,6 +6,8 @@ import com.movieapp.model.Movie;
 import com.movieapp.repository.MovieRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class MovieService {
 
@@ -34,6 +36,14 @@ public class MovieService {
           movie.setTime(movieDto.getTime());
 
           movieRepository.save(movie);
+
+    }
+    public Movie findMovie(int idMovie){
+
+    Optional<Movie> movieOptional =  movieRepository.findById(idMovie);
+    Movie movie = movieOptional.get();
+
+    return movie;
 
     }
 

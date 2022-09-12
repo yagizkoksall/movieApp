@@ -6,7 +6,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 
 @NoArgsConstructor
@@ -16,6 +19,9 @@ import java.util.Date;
 @Entity
 @Table(name = "movie")
 public class Movie {
+
+
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,5 +37,21 @@ public class Movie {
     @ManyToOne
     @JoinColumn(name = "director_id")
     private Director director;
+
+    //leetcode
+
+/*
+    @OneToMany(mappedBy = "movie")
+    Set<UsersMovies> usersMovies;
+
+
+ */
+/*
+
+    @ManyToMany(mappedBy = "movies")
+    private List<User> users = new ArrayList<User>();
+
+
+ */
 
 }

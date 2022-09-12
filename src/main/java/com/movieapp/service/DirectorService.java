@@ -19,8 +19,6 @@ public class DirectorService {
 
     public void getDirectorById(Director director){
 
-
-
     }
 
     public Director getDirectorByName(String firstName, String lastName){

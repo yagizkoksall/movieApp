@@ -19,6 +19,23 @@ public class LoginService {
         this.loginRepository = loginRepository;
     }
 
+
+
+    public void save(UserDto userDto) {
+
+        User user = new User();
+
+        user.setFirstName(userDto.getFirstName());
+        user.setLastName(userDto.getLastName());
+        user.setBirthday(userDto.getBirthday());
+        user.setMail(userDto.getMail());
+        user.setPassword(userDto.getPassword());
+
+
+        loginRepository.save(user);
+
+    }
+
     public void login(UserDto userDto){
 
        Optional<User> userOptional = loginRepository.
@@ -35,6 +52,8 @@ public class LoginService {
 
 
     }
+
+
 
 
 }
