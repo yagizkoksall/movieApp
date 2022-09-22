@@ -13,24 +13,24 @@ public class DirectorService {
 
     private final DirectorRepository directorRepository;
 
+
     public DirectorService(DirectorRepository directorRepository) {
         this.directorRepository = directorRepository;
     }
 
-    public void getDirectorById(Director director){
+    public void getDirectorById(Director director) {
 
     }
 
-    public Director getDirectorByName(String firstName, String lastName){
-        Optional<Director>  directorOptional= directorRepository.findDirectorByFirstNameAndLastName(firstName,lastName);
+    public Director getDirectorByName(String firstName, String lastName) {
+        Optional<Director> directorOptional = directorRepository.findDirectorByFirstNameAndLastName(firstName, lastName);
 
-        if(directorOptional.isPresent()){
+        if (directorOptional.isPresent()) {
             Director director = new Director();
             director = directorOptional.get();
             return director;
-        }
-        else{
-           throw new  IsEmptyException("Yönetmen bulunamadı.");
+        } else {
+            throw new IsEmptyException("Yönetmen bulunamadı.");
         }
 
     }

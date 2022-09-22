@@ -6,7 +6,9 @@ import com.movieapp.model.Movie;
 import com.movieapp.repository.MovieRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class MovieService {
@@ -44,6 +46,24 @@ public class MovieService {
     Movie movie = movieOptional.get();
 
     return movie;
+
+    }
+
+    public List<MovieDto> getAllMovies(){
+
+        List<Movie> movieList = movieRepository.findAll();
+
+
+
+        Movie movie = new Movie();
+
+        movie.getDirector();
+
+        return movieList.stream().map(MovieDto::new).collect(Collectors.toList());
+
+
+
+
 
     }
 

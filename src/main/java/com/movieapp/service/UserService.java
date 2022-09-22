@@ -4,10 +4,12 @@ package com.movieapp.service;
 import com.movieapp.dto.UserDto;
 import com.movieapp.model.Movie;
 import com.movieapp.model.User;
+import com.movieapp.model.UsersMovies;
 import com.movieapp.repository.UserRepository;
 import com.movieapp.repository.UsersMoviesRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -39,12 +41,7 @@ public class UserService {
 
     }
 
-    public void getWatchedList(int id){
 
-
-
-
-    }
 
 
 }

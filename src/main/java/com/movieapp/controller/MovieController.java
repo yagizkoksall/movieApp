@@ -6,6 +6,8 @@ import com.movieapp.service.MovieService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/movie")
 public class MovieController {
@@ -23,6 +25,17 @@ public class MovieController {
         movieService.saveMovie(movieDto);
 
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping
+    public List<MovieDto> getallMovies(){
+
+
+
+
+
+        return movieService.getAllMovies();
+
     }
 
 }

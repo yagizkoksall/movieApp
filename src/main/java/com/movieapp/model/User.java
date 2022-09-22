@@ -41,9 +41,11 @@ public class User{
 
     private Date birthday;
 
-
+/*
     @OneToMany(mappedBy = "user")
     Set<UsersMovies> usersMovies;
+
+ */
 
     /*
     @ManyToMany
