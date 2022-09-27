@@ -21,6 +21,7 @@ public class MovieDto extends BaseDto{
     private String comment;
     private String summary;
     private String time;
+    private String movieName;
 
     private DirectorDto directorDto;
 
@@ -31,6 +32,7 @@ public class MovieDto extends BaseDto{
         this.comment = movie.getComment();
         this.summary = movie.getSummary();
         this.time = movie.getTime();
+        this.movieName = movie.getMovieName();
         this.directorDto = new DirectorDto(movie.getDirector());
 
 
