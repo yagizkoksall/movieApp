@@ -25,9 +25,9 @@ public class DirectorService {
         Optional<Director> directorOptional = directorRepository.findDirectorByFirstNameAndLastName(directorDto.getDirectorFirstName(),directorDto.getDirectorLastName());
 
         if (directorOptional.isPresent()) {
-            Director director = new Director();
-            director = directorOptional.get();
-            return director;
+
+            return directorOptional.get();
+
         } else {
             throw new IsEmptyException("Yönetmen bulunamadı.");
         }
