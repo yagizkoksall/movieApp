@@ -41,20 +41,7 @@ public class User{
 
     private Date birthday;
 
-/*
-    @OneToMany(mappedBy = "user")
-    Set<UsersMovies> usersMovies;
 
- */
-
-    /*
-    @ManyToMany
-    @JoinTable(name = "user_has_movie", joinColumns = @JoinColumn(name = "user_user_id"),
-            inverseJoinColumns = @JoinColumn(name = "movie_idMovie"))
-    private List<Movie> movies = new ArrayList<Movie>();
-
-
-     */
 
 
 }

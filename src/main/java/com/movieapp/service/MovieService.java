@@ -22,47 +22,44 @@ public class MovieService {
     }
 
 
-    public void saveMovie(MovieDto movieDto){
-            Movie movie = new Movie();
+    public void saveMovie(MovieDto movieDto) {
+        Movie movie = new Movie();
 
-       Director director =  directorService.getDirectorByName(movieDto.getDirectorFirstName(),
-               movieDto.getDirectorLastName());
-
+        Director director = directorService.getDirectorByName(movieDto.getDirectorDto());
 
 
-          movie.setDirector(director);
-          movie.setMovieYear(movieDto.getMovieYear());
-          movie.setComment(movieDto.getComment());
-          movie.setSummary(movieDto.getSummary());
-          movie.setImdb(movieDto.getImdb());
-          movie.setTime(movieDto.getTime());
+        movie.setDirector(director);
+        movie.setMovieYear(movieDto.getMovieYear());
+        movie.setComment(movieDto.getComment());
+        movie.setSummary(movieDto.getSummary());
+        movie.setImdb(movieDto.getImdb());
+        movie.setTime(movieDto.getTime());
 
-          movieRepository.save(movie);
-
-    }
-    public Movie findMovie(int idMovie){
-
-    Optional<Movie> movieOptional =  movieRepository.findById(idMovie);
-    Movie movie = movieOptional.get();
-
-    return movie;
+        movieRepository.save(movie);
 
     }
 
-    public List<MovieDto> getAllMovies(){
+    public Movie findMovie(int idMovie) {
+
+        Optional<Movie> movieOptional = movieRepository.findById(idMovie);
+
+        if (movieOptional.isPresent()) {
+            return movieOptional.get();
+
+        }
+        else{
+            throw new RuntimeException("Film bulunamadı.");
+        }
+
+
+    }
+
+    public List<MovieDto> getAllMovies() {
 
         List<Movie> movieList = movieRepository.findAll();
 
 
-
-        Movie movie = new Movie();
-
-        movie.getDirector();
-
         return movieList.stream().map(MovieDto::new).collect(Collectors.toList());
-
-
-
 
 
     }

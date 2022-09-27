@@ -1,6 +1,7 @@
 package com.movieapp.service;
 
 
+import com.movieapp.dto.DirectorDto;
 import com.movieapp.exception.IsEmptyException;
 import com.movieapp.model.Director;
 import com.movieapp.repository.DirectorRepository;
@@ -18,12 +19,10 @@ public class DirectorService {
         this.directorRepository = directorRepository;
     }
 
-    public void getDirectorById(Director director) {
+   
 
-    }
-
-    public Director getDirectorByName(String firstName, String lastName) {
-        Optional<Director> directorOptional = directorRepository.findDirectorByFirstNameAndLastName(firstName, lastName);
+    public Director getDirectorByName(DirectorDto directorDto) {
+        Optional<Director> directorOptional = directorRepository.findDirectorByFirstNameAndLastName(directorDto.getDirectorFirstName(),directorDto.getDirectorLastName());
 
         if (directorOptional.isPresent()) {
             Director director = new Director();

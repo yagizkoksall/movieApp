@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import java.util.Date;
 
 
@@ -15,12 +16,12 @@ import java.util.Date;
 public class UserDto extends BaseDto {
 
 
+    private String firstName;
+    private String lastName;
+    private String mail;
+    private String password;
 
-   private String firstName;
-   private String lastName;
-   private String mail;
-   private String password;
+    private Date birthday;
 
-   private Date birthday;
 
 }

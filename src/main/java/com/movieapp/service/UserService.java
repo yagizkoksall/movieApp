@@ -1,12 +1,10 @@
 package com.movieapp.service;
 
 
-import com.movieapp.dto.UserDto;
+import com.movieapp.dto.UsersMoviesDto;
 import com.movieapp.model.Movie;
 import com.movieapp.model.User;
-import com.movieapp.model.UsersMovies;
 import com.movieapp.repository.UserRepository;
-import com.movieapp.repository.UsersMoviesRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,13 +23,36 @@ public class UserService {
         this.movieService = movieService;
     }
 
+    public User getUser(int idUser){
 
-    public void personalMovieList(int idUser, int idMovie) {
+        Optional<User> optionalUser = userRepository.findById(idUser);
+
+        if(optionalUser.isPresent()){
+
+            User user = new User();
+
+            return user = optionalUser.get();
+
+        }
+        else{
+            throw new RuntimeException("Kullanıcı bulunamadı.");
+        }
 
 
-        Optional<User> userOptional = userRepository.findById(idUser);
 
-        User user = userOptional.get();
+
+    }
+
+
+    public void addpersonalMovieList(int idUser, int idMovie) {
+
+
+
+        User user = getUser(idUser);
+
+
+
+
 
         Movie movie = movieService.findMovie(idMovie);
 
@@ -41,7 +62,16 @@ public class UserService {
 
     }
 
+    public List<UsersMoviesDto> getPersonalMovieList(int idUser){
 
+        User user = getUser(idUser);
+
+
+
+
+      return usersMoviesService.getAllPersonalMovies(user);
+
+    }
 
 
 }
