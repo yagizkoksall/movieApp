@@ -23,35 +23,27 @@ public class UserService {
         this.movieService = movieService;
     }
 
-    public User getUser(int idUser){
+    public User getUser(int idUser) {
 
         Optional<User> optionalUser = userRepository.findById(idUser);
 
-        if(optionalUser.isPresent()){
+        if (optionalUser.isPresent()) {
 
-            User user = new User();
 
-            return user = optionalUser.get();
+            return optionalUser.get();
 
-        }
-        else{
+        } else {
             throw new RuntimeException("Kullanıcı bulunamadı.");
         }
-
-
 
 
     }
 
 
-    public void addpersonalMovieList(int idUser, int idMovie) {
-
+    public void addPersonalMovieList(int idUser, int idMovie) {
 
 
         User user = getUser(idUser);
-
-
-
 
 
         Movie movie = movieService.findMovie(idMovie);
@@ -62,14 +54,12 @@ public class UserService {
 
     }
 
-    public List<UsersMoviesDto> getPersonalMovieList(int idUser){
+    public List<UsersMoviesDto> getPersonalMovieList(int idUser) {
 
         User user = getUser(idUser);
 
 
-
-
-      return usersMoviesService.getAllPersonalMovies(user);
+        return usersMoviesService.getAllPersonalMovies(user);
 
     }
 

@@ -1,0 +1,1 @@
+admin film ekleyebilecek, userlar izlediği filmi kaydedebilecek. İMDB,YORUM,FİLM TARİHİ, 

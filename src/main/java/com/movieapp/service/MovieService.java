@@ -34,6 +34,7 @@ public class MovieService {
         movie.setSummary(movieDto.getSummary());
         movie.setImdb(movieDto.getImdb());
         movie.setTime(movieDto.getTime());
+        movie.setMovieName(movieDto.getMovieName());
 
         movieRepository.save(movie);
 
