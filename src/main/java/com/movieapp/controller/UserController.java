@@ -25,7 +25,7 @@ public class UserController {
     public ResponseEntity<Void> addPersonalMovieList(@PathVariable int idUser, @PathVariable int idMovie) {
 
 
-        userService.addpersonalMovieList(idUser, idMovie);
+        userService.addPersonalMovieList(idUser, idMovie);
 
 
         return ResponseEntity.ok().build();
