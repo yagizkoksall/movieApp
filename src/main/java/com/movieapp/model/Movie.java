@@ -31,6 +31,7 @@ public class Movie {
     private String comment;
     private String summary;
     private String time;
+    private String movieName;
 
     @ManyToOne
     @JoinColumn(name = "director_id")
