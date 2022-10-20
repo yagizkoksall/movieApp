@@ -2,7 +2,7 @@ package com.movieapp.controller;
 
 
 import com.movieapp.dto.UserDto;
-import com.movieapp.service.LoginService;
+import com.movieapp.service.ILoginService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/login")
 public class LoginController {
 
-    private final LoginService loginService;
+    private final ILoginService loginService;
 
-    public LoginController(LoginService loginService) {
+    public LoginController(ILoginService loginService) {
         this.loginService = loginService;
     }
 
