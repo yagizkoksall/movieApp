@@ -2,7 +2,7 @@ package com.movieapp.controller;
 
 
 import com.movieapp.dto.MovieDto;
-import com.movieapp.service.MovieService;
+import com.movieapp.service.IMovieService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,9 +12,9 @@ import java.util.List;
 @RequestMapping("/movie")
 public class MovieController {
 
-    private final MovieService movieService;
+    private final IMovieService movieService;
 
-    public MovieController(MovieService movieService) {
+    public MovieController(IMovieService movieService) {
         this.movieService = movieService;
     }
 
@@ -28,14 +28,16 @@ public class MovieController {
     }
 
     @GetMapping
-    public List<MovieDto> getallMovies(){
+    public ResponseEntity<List<MovieDto>> getallMovies(){
 
 
 
 
 
-        return movieService.getAllMovies();
+        return ResponseEntity.ok(movieService.getAllMovies());
 
     }
+
+
 
 }

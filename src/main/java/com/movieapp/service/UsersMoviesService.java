@@ -1,7 +1,6 @@
 package com.movieapp.service;
 
 
-import com.movieapp.dto.MovieDto;
 import com.movieapp.dto.UsersMoviesDto;
 import com.movieapp.model.Movie;
 import com.movieapp.model.User;
@@ -13,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class UsersMoviesService {
+public class UsersMoviesService implements IUsersMoviesService{
 
 
 
@@ -50,6 +49,8 @@ public class UsersMoviesService {
 
 
     }
+
+
 
 
 }

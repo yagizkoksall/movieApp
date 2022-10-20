@@ -13,7 +13,7 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class MovieDto extends BaseDto{
+public class MovieDto extends BaseDto {
 
 
     private Date movieYear;
@@ -23,10 +23,12 @@ public class MovieDto extends BaseDto{
     private String time;
     private String movieName;
 
+
+
     private DirectorDto directorDto;
 
 
-    public MovieDto(Movie movie){
+    public MovieDto(Movie movie) {
         this.movieYear = movie.getMovieYear();
         this.imdb = movie.getImdb();
         this.comment = movie.getComment();
@@ -36,6 +38,7 @@ public class MovieDto extends BaseDto{
         this.directorDto = new DirectorDto(movie.getDirector());
 
 
-
     }
+
+
 }

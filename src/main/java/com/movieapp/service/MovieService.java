@@ -11,10 +11,11 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class MovieService {
+public class MovieService implements IMovieService {
 
     private final MovieRepository movieRepository;
     private final DirectorService directorService;
+
 
     public MovieService(MovieRepository movieRepository, DirectorService directorService) {
         this.movieRepository = movieRepository;
@@ -47,8 +48,7 @@ public class MovieService {
         if (movieOptional.isPresent()) {
             return movieOptional.get();
 
-        }
-        else{
+        } else {
             throw new RuntimeException("Film bulunamadı.");
         }
 

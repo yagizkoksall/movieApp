@@ -4,13 +4,12 @@ package com.movieapp.service;
 import com.movieapp.dto.UserDto;
 import com.movieapp.model.User;
 import com.movieapp.repository.LoginRepository;
-import com.movieapp.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
-public class LoginService {
+public class LoginService implements ILoginService{
 
 
     private final LoginRepository loginRepository;
@@ -18,7 +17,6 @@ public class LoginService {
     public LoginService(LoginRepository loginRepository) {
         this.loginRepository = loginRepository;
     }
-
 
 
     public void save(UserDto userDto) {
@@ -36,24 +34,21 @@ public class LoginService {
 
     }
 
-    public void login(UserDto userDto){
+    public void login(UserDto userDto) {
 
-       Optional<User> userOptional = loginRepository.
-               findUserByMailAndPassword(userDto.getMail(),
-                       userDto.getPassword());
+        Optional<User> userOptional = loginRepository.
+                findUserByMailAndPassword(userDto.getMail(),
+                        userDto.getPassword());
 
 
-       if(userOptional.isEmpty()){
+        if (userOptional.isEmpty()) {
 
-           throw new RuntimeException("Kullanıcı adı veya şifre hatalı.");
+            throw new RuntimeException("Kullanıcı adı veya şifre hatalı.");
 
         }
 
 
-
     }
-
-
 
 
 }
